@@ -29,3 +29,5 @@ Detailed explanations for how the code works can be found in the documentation i
 
 The code was developed using the Anaconda Python distribution for Python 2.7 and the Eclipse IDE with PyDev. It uses the matplotlib and numpy libraries.
 
+Questions? Email katharin.jensen@gmail.com
+
