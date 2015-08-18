@@ -56,11 +56,11 @@ start_time = time.clock()
 
 
 #set type of simulation to run.
-dyn = True # sets whether the simulation is dynamic (True) or quasistatic (False).
+dyn = False # sets whether the simulation is dynamic (True) or quasistatic (False).
 damage = False #sets whether or not to add damage effects
 plasticity = False #sets whether or not to do plasticity with a Jenkins element
 dashpot_par = False #sets whether or not to add a dashpot in parallel with the side spring
-dashpot_ser = True #sets whether or not to add a dashpot in series with the side spring
+dashpot_ser = False #sets whether or not to add a dashpot in series with the side spring
 bing = False #sets whether or not to use binning
 testing = True #sets whether to run in testing mode, with a non-random initial number distribution
 auto_dfix = True #if true, if a displacement value is >= H, it will automatically be set to .9999*H. If false, the code won't run if a d value >= H.
@@ -68,8 +68,8 @@ multirun = False #sets whether the simulation will run multiple times to make a 
 
 
 #set animation options
-make_ani = True
-save_ani = True
+make_ani = True #make an animation
+save_ani = False #save animation to a .gif file (takes ~5min)
 auto_frameskip = True #automatically sets frameskip so that if save_ani is on, the animation will play in the same length of time but at 10fps
 
 
@@ -80,7 +80,7 @@ ea_t = 10.0 #top spring constant (N)
 k_t = 100.0 #side spring constant (N/m)
 H = 1.0 #total height (m)
 Wm = 4.0 #Weibull modulus
-n_l = 3 #number of links
+n_l = 2 #number of links
 steps = 1000 #number of displacement steps (note, if dyn=True this will be overwritten by t_stop/dt)
 
 #for binning
@@ -119,8 +119,8 @@ runs = 100 #number of runs for multirun
 
 
 #create list of displacements using dfunc
-d = dfunc.cospath(steps,3,H,.5)
-#d = dfunc.linepath(steps,H)
+#d = dfunc.cospath(steps,3,H,.5)
+d = dfunc.linepath(steps,H)
 #d1 = dfunc.linepath(steps/3,H*.5)
 #d2 = dfunc.pausepath(steps/3,H*.5)
 #d3 = dfunc.linepath(steps/3,H,d0=H*.5)
